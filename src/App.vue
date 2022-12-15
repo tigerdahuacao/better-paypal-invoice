@@ -7,7 +7,7 @@
                 <router-link to="/invoice" style="text-decoration: none;">Invoice</router-link>
             </div>
             <div class="mb-1 button_set">
-            <router-link to="/oldHtml" style="text-decoration: none;">OldHtml</router-link>
+            <router-link to="/oldHtml" style="text-decoration: none;">Old Html version Page</router-link>
             </div>
         </div></Footer
     >
@@ -32,8 +32,9 @@ export default {
 }
 
 .button_set {
-    width: 100px;
-    height: 30px;
+    padding: 0.4rem;
+    width: auto;
+    height: auto;
     border-radius: 20px;
     text-align: center;
     background-color: white;
