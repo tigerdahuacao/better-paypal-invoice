@@ -3,7 +3,7 @@
         class="container-lg   my-5 pt-5 text-muted text-center text-small"
     >
         <a target="_blank" :href="href">{{ legalInfo }}</a>
-        <div><slot>Default Value</slot></div>
+        <div><slot>Legal Info Slot : Default Value</slot></div>
     </div>
 </template>
 

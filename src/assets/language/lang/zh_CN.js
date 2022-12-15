@@ -15,7 +15,22 @@ module.exports =  {
         tax_id:"纳税人身份号码",
         invoice_date:"发出",
         due_date:"到期",
-        bill_to:"Bill to(我也不知道这个是账单地址还是运送地址",
-        
+        //(我也不知道这个是账单地址还是运送地址)
+        bill_to:"Bill to (TODO)",
+        subtotal:"subtotal 小计",
+        item_discount:"item discount 打折总和",
+        other_discount:"其他打折",
+        shipping_fee:"物流费用",
+        tax_fee:"税金",
+        tax_rate:"税率",
+        packing_charge:"包装费用",
+        // sumtotal:"总计",
+        deal_ref:"Reference",
+        note:"卖家的留言",
+        min_amount_due:'Minimum amount due',
+        balance_due:"Balance due",
+        pay_other_amount:"Pay other amount (__replace1__ __replace2__)",
+        cancel_pay:"取消支付",
+        pay:"支付"
     }
 }

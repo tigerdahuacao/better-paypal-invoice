@@ -1,5 +1,7 @@
 <template>
-    <div class="footer" :class="{ 'fixed-footer': fixed }">这是页脚</div>
+    <div :class="{ 'fixed-footer': fixed }">
+        <div><slot>Footer Slot : 这是页脚</slot></div>
+    </div>
 </template>
 <script>
 export default {
@@ -23,21 +25,9 @@ export default {
     width: 100%;
     // z-index: 1;
     background-color: blueviolet;
-    height: 3rem;
-    opacity: 40%;
-
-    font-size: larger;
-}
-
-.footer {
-    background-color: blueviolet;
+    height: 4rem;
+    opacity: 80%;
     text-align: center;
-    font-size: 0.26667rem;
-    margin: 30px 0;
-    .copyright {
-        a {
-            color: inherit;
-        }
-    }
+    font-size: larger;
 }
 </style>

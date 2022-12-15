@@ -1,15 +1,16 @@
 <template>
-    <div class="title " >
-        <el-card shadow="hover" style="float: left;">
-            <router-link to="/invoice">Invoice</router-link>
-        </el-card>
+    <router-view></router-view>
 
-        <el-card shadow="hover" style="float: right;">
-            <router-link to="/oldHtml">OldHtml</router-link>
-        </el-card>
-    </div>
-    <router-view ></router-view>
-    <Footer />
+    <Footer :fixed="true">
+        <div class="button_box">
+            <div class="mb-1 button_set">
+                <router-link to="/invoice" style="text-decoration: none;">Invoice</router-link>
+            </div>
+            <div class="mb-1 button_set">
+            <router-link to="/oldHtml" style="text-decoration: none;">OldHtml</router-link>
+            </div>
+        </div></Footer
+    >
 </template>
 
 <script>
@@ -24,9 +25,19 @@ export default {
 </script>
 
 <style>
-.title {
+.button_box {
+    text-align: left;
+    margin-left: 3rem;
+    display:flex
+}
+
+.button_set {
+    width: 100px;
+    height: 30px;
+    border-radius: 20px;
     text-align: center;
-    margin: auto 0px;
-    vertical-align: middle;
+    background-color: white;
+    margin: 1rem;
+    
 }
 </style>

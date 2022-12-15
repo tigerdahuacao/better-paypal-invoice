@@ -1,4 +1,4 @@
-import { createI18n } from "vue-i18n";
+import { createI18n } from "vue-i18n/dist/vue-i18n.cjs.js";
 import zhCN from "./lang/zh_CN";
 import enUS from "./lang/en_US";
 

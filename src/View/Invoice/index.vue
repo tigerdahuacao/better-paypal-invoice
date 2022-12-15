@@ -12,7 +12,12 @@
                     :responseObj="httpResponse"
                 ></LeftMainPart
             ></el-main>
-            <el-aside width="30%"><RightMainPart></RightMainPart></el-aside>
+            <el-aside width="30%"
+                ><RightMainPart
+                    v-if="httpFlag && httpResponse"
+                    :responseObj="httpResponse"
+                ></RightMainPart
+            ></el-aside>
         </el-container>
         <!-- <button @click="getData">搜索</button> -->
         <LegalInfo href="https://www.bing.com" legalInfo="这是测试链接">
@@ -25,7 +30,6 @@
         >
     </div>
 
-    <Footer :fixed="true"></Footer>
 </template>
 
 <script>
@@ -34,7 +38,6 @@ import Footer from "../../components/Footer";
 import LeftMainPart from "./LeftMainPart.vue";
 import LegalInfo from "../../components/LegalInfo.vue";
 import RightMainPart from "./RightLMainPart.vue";
-
 // import { defineAsyncComponent } from 'vue'
 
 export default {
@@ -76,6 +79,22 @@ export default {
             const httpResponse = await this.axios.get("/api/invoice");
             this.httpResponse = httpResponse.data;
             this.httpFlag = true;
+
+            const currencySymbolMap = this.getCurrencySymbolMap.call();
+
+            this.httpResponse.currency_symbol = currencySymbolMap.get(
+                _.get(this.httpResponse, "detail.currency_code")
+            );
+
+            this.httpResponse.format_due_amount = `${this.httpResponse.currency_symbol
+            }${_.get(this.httpResponse, "due_amount.value")}`;
+
+            this.httpResponse.format_minimum_amount=`${this.httpResponse.currency_symbol
+            }${_.get(this.httpResponse, "configuration.partial_payment.minimum_amount_due.value")}`
+
+            this.httpResponse.allow_partial_payment=_.get(this.httpResponse,"configuration.partial_payment.allow_partial_payment")
+
+            // debugger;
             console.log("数据获取啦");
         },
 

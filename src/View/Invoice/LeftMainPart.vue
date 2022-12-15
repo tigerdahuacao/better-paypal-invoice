@@ -17,9 +17,11 @@
                 />
 
                
-                <ItemListAndTotalArea v-if="this.itemList.length > 0" :itemsToDisplay="itemList"></ItemListAndTotalArea>
+                <ItemListAndTotalArea v-if="this.itemList.length > 0" :itemsToDisplay="itemList" :amount="this.responseObj.amount"></ItemListAndTotalArea>
             </el-main>
-            <el-footer>Footer</el-footer>
+            <el-divider />
+                <LeftMatinPartFooter v-if="footer_obj.isInit" :obj="footer_obj"/>
+
         </el-card>
     </div>
 </template>
@@ -33,6 +35,7 @@
 import BillingAddress from "./BillingAddress.vue";
 import ContactInfo from "./ContactInfo.vue";
 import ItemListAndTotalArea from "./ItemListAndTotalArea.vue";
+import LeftMatinPartFooter from "./LeftMatinPartFooter.vue";
 
 export default {
     name: "LeftMainPart",
@@ -61,6 +64,9 @@ export default {
             contact_email_addr_2: "",
             contact_phone_number: "",
             itemList: [],
+            footer_obj:{
+                isInit:false
+            }
         };
     },
 
@@ -107,6 +113,15 @@ export default {
 
         this.itemList = _.get(this.responseObj, "items");
         // console.log(_.get(this.responseObj, "items"))
+
+        this.footer_obj = {
+            isInit:true,
+            due_amount:_.get(this.responseObj, "format_due_amount"),
+            note:_.get(this.responseObj,"detail.note"),
+            reference:_.get(this.responseObj,"detail.reference"),
+        }
+
+        // debugger;
     },
 };
 </script>
