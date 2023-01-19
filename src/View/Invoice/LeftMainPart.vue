@@ -17,7 +17,7 @@
                 />
 
                
-                <ItemListAndTotalArea v-if="this.itemList.length > 0" :itemsToDisplay="itemList" :amount="this.responseObj.amount"></ItemListAndTotalArea>
+                <ItemListAndTotalArea v-if="itemList.length > 0" :itemsToDisplay="itemList" :amount="responseObj.amount"></ItemListAndTotalArea>
             </el-main>
             <el-divider />
                 <LeftMatinPartFooter v-if="footer_obj.isInit" :obj="footer_obj"/>
@@ -110,7 +110,7 @@ export default {
             this.responseObj,
             "invoicer.phones[0].national_number"
         );
-
+        debugger;
         this.itemList = _.get(this.responseObj, "items");
         // console.log(_.get(this.responseObj, "items"))
 

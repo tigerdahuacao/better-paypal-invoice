@@ -76,6 +76,8 @@ export default {
 
     methods: {
         async getData() {
+            console.log("获取数据方法触发了:invoice.index,vue")
+            console.log(process.env)
             const httpResponse = await this.axios.get("/api/invoice");
             this.httpResponse = httpResponse.data;
             this.httpFlag = true;
