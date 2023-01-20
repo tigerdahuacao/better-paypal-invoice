@@ -2,9 +2,7 @@
     <div class="common-layout">
         <el-card>
             <el-main>
-                <h4
-                    class="d-flex justify-content-between align-items-center mb-3"
-                >
+                <h4 class="d-flex justify-content-between align-items-center mb-3">
                     <small class="">{{ $t("invoice.balance_due") }}:</small>
                     <span class="">{{ responseObj.format_due_amount }}</span>
                 </h4>
@@ -65,16 +63,31 @@ export default {
         );
     },
 
-    methods:{
-        pay_btn_clicked:()=>{
-            console.log("pay button clicked")
+    methods: {
+        //不要使用箭头函数, 否则 this为undefined
+        // pay_btn_clicked: () => {
+        //     debugger;
+        //     const invoice_id = this.$route.params.invoice_id
+        //     console.log("pay button clicked invoice ID:", invoice_id );
+        //     const url = `${process.env.VUE_APP_BASE_URL}/invoicing/${invoice_id}/send`;
+        //     this.axios.post(url);
+        // },
+
+        pay_btn_clicked () {
+            debugger;
+            const invoice_id = this.$route.params.invoice_id
+            console.log("pay button clicked invoice ID:", invoice_id );
+            const url = `${process.env.VUE_APP_BASE_URL}/invoicing/${invoice_id}/send`;
+            this.axios.post(url);
         },
 
-        cancel_btn_clicked:()=>{
+        cancel_btn_clicked: () => {
             console.log("pay button clicked")
         }
     }
 };
 </script>
 
-<style></style>
+<style>
+
+</style>

@@ -4,7 +4,7 @@ import "element-plus/dist/index.css";
 import "./css/bootstrap.min.css";
 import i18n from "./assets/language";
 import Router from "./router";
-require("./mock");
+process.env.VUE_APP_MOCK === 'true' && require("./mock");
 import axios from "axios";
 import VueAxios from "vue-axios";
 import _ from "lodash";

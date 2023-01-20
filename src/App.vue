@@ -4,7 +4,7 @@
     <Footer :fixed="true">
         <div class="button_box">
             <div class="mb-1 button_set">
-                <router-link to="/invoice" style="text-decoration: none;">Invoice</router-link>
+                <router-link to="/test" style="text-decoration: none;">Go Back to Test Main Page</router-link>
             </div>
             <div class="mb-1 button_set">
             <router-link to="/oldHtml" style="text-decoration: none;">Old Html version Page</router-link>

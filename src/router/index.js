@@ -2,17 +2,21 @@ import { createRouter, createWebHistory, createWebHashHistory  } from 'vue-route
  
 const routes = [
   {
-    path: '/invoice',
+    path: '/invoice/:invoice_id',
     component: ()=> import('../View/Invoice'),
   },
   {
     path: '/oldHtml',
     component: ()=>import('../View/OldHtml'),
   },
+  {
+    path: '/test',
+    component: ()=>import('../View/TestPage'),
+  },
   // 重定向
   {
     path: '/', 
-    redirect: '/invoice' 
+    redirect: '/test' 
   }
 ]
  
