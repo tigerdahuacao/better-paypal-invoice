@@ -10,6 +10,7 @@ import VueAxios from "vue-axios";
 import _ from "lodash";
 import App from "./App.vue";
 import { getCurrencySymbolMap } from "./js/CurrencySymbolMap";
+import globalVariable from "@/api/globalVariable";
 
 //TODO
 //获取本地语言
@@ -20,6 +21,7 @@ const app = createApp(App);
 
 app.config.globalProperties._ = _;
 app.config.globalProperties.getCurrencySymbolMap = getCurrencySymbolMap;
+app.config.globalProperties.globalVariable = globalVariable;
 
 app.use(Router)
     .use(VueAxios, axios)

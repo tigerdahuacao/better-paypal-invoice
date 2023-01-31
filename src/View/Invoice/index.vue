@@ -86,23 +86,25 @@ export default {
 
     methods: {
         async getData() {
+            const currencySymbolMap = this.getCurrencySymbolMap.call();
+            let baseURL = this.globalVariable.useLocalURl ? this.globalVariable.localURL : process.env.VUE_APP_BASE_URL
+            let url;
+
+
             console.log("获取数据方法触发了:invoice.index,vue")
             console.table(process.env)
             console.warn(process.env.VUE_APP_MOCK)
-            let url;
             let isMock = eval(process.env.VUE_APP_MOCK)
             console.log(isMock)
             if (isMock) {
                 url = "/api/invoice"                
             } else {
-                url = `${process.env.VUE_APP_BASE_URL}/invoicing/${this.invoice_id}`;                
+                url = `${baseURL}/invoicing/invoices/${this.invoice_id}`;                
             }
             console.log(url)
             const httpResponse = await this.axios.get(url);
             this.httpResponse = httpResponse.data;
-            this.httpFlag = true;
-
-            const currencySymbolMap = this.getCurrencySymbolMap.call();
+            this.httpFlag = true;    
 
             this.httpResponse.currency_symbol = currencySymbolMap.get(
                 _.get(this.httpResponse, "detail.currency_code")

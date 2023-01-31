@@ -7,20 +7,42 @@
                 <router-link to="/test" style="text-decoration: none;">Go Back to Test Main Page</router-link>
             </div>
             <div class="mb-1 button_set">
-            <router-link to="/oldHtml" style="text-decoration: none;">Old Html version Page</router-link>
+                <router-link to="/oldHtml" style="text-decoration: none;">Old Html version Page</router-link>
             </div>
-        </div></Footer
-    >
+           
+
+        </div>
+    </Footer>
 </template>
+
+<!-- <script  setup>
+import { ref } from 'vue'
+import { getCurrentInstance } from "vue";
+const value2 = ref(true);
+const change = () => {
+    // alert("change!")
+    const internalInstance = getCurrentInstance();
+    debugger;
+    const globalVariable = internalInstance.appContext.config.globalProperties.globalVariable;
+    console.log(globalVariable)
+}
+</script> -->
 
 <script>
 import Footer from "./components/Footer.vue";
-
 export default {
     name: "App",
     components: {
         Footer,
     },
+    data(){
+        return {
+           
+        }
+    },
+    methods:{
+       
+    }
 };
 </script>
 
@@ -28,7 +50,7 @@ export default {
 .button_box {
     text-align: left;
     margin-left: 3rem;
-    display:flex
+    display: flex
 }
 
 .button_set {
@@ -39,6 +61,6 @@ export default {
     text-align: center;
     background-color: white;
     margin: 1rem;
-    
+
 }
 </style>
