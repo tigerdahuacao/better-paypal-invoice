@@ -26,6 +26,18 @@ npm run lint
 ~~git remote set-url origin https://github.com/tigerdahuacao/better-paypal-invoice.git~~  
 git remote add origin XXXXXX  
 ~~new token for push code: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~~  
+```
+git config user.name xxxx
+git config user.email xxx
+git commit -m "XXXXX"
+git push origin
+```
+
+冲突解决
+```
+git pull -X theirs
+git merge --strategy-option theirs
+```
 
 待定:
 1. 英语的国际化文件, 获取本地语言状态
